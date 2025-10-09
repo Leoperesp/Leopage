@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/index.css">
+    <title>Leopages</title>
+</head>
+<body>
+    <div id="content-wrap">
+        <header>
+            <h1>Hola! Soy Leonardo Perez.</h1>
+            <button id="theme-toggle" onclick="toggleTheme()">Cambiar a Modo Oscuro</button>
+        </header>
+        <main>
+            <div class="container"> 
+                <h2>Bienvenido a mi sitio web personal.</h2>
+                <p>Aquí encontrarás diferentes proyectos que he hecho en mi carreara de programador, así como otras habilidades que he adquirido en otros campos.</p>
+                <p>Gracias por visitar mi sitio web!</p>
+            </div>
+            
+            <div class="right-column-group">
+                <div class="image-container">
+                    <img src="img/prof_img.jpg" alt="Leonardo Perez">
+                </div>
+                <div class="menu-container">
+                    <div class="dropdown">
+                        <button class="dropdown-button" onclick="toggleDropdown()">Por donde quieres comenzar?</button>
+                        <ul id="menu-desplegable" class="dropdown-content">
+                            <li><a href="proyectos_p.html">Proyectos de programación</a></li>
+                            <li><a href="Proyectos_e.html">Proyectos de electrónica</a></li>
+                            <li><a href="Hobbies.html">Hobbies y aficiones</a></li>
+                            <li><a href="contacto.html">Contacto</a></li>
+                        </ul>
+                    </div>
+                    
+                </div>
+            </div>
+        </main>
+    </div>
+    <footer>
+        <p>&copy; 2025 diseñado por: Leonardo Perez.</p>
+    </footer>
+
+    <script>
+        function toggleDropdown() {
+            // Selecciona el elemento del menú desplegable por su ID
+            const menu = document.getElementById("menu-desplegable");
+            
+            // Alterna la clase 'show' para mostrar/ocultar el menú
+            menu.classList.toggle("show");
+        }
+
+        // Opcional: Cerrar el menú si el usuario hace clic fuera de él
+        window.onclick = function(event) {
+            if (!event.target.matches('.dropdown-button')) {
+                const dropdowns = document.getElementsByClassName("dropdown-content");
+                for (let i = 0; i < dropdowns.length; i++) {
+                    const openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                }
+            }
+        }
+
+                // FUNCIÓN PARA EL MODO OSCURO
+        function toggleTheme() {
+            const body = document.body;
+            const toggleButton = document.getElementById('theme-toggle');
+
+            // 1. Alternar la clase en el <body>
+            body.classList.toggle('dark-mode');
+
+            // 2. Guardar la preferencia del usuario en el almacenamiento local
+            if (body.classList.contains('dark-mode')) {
+                localStorage.setItem('theme', 'dark');
+                toggleButton.textContent = 'Cambiar a Modo Claro';
+            } else {
+                localStorage.setItem('theme', 'light');
+                toggleButton.textContent = 'Cambiar a Modo Oscuro';
+            }
+        }
+
+        // FUNCIÓN PARA APLICAR EL TEMA AL CARGAR LA PÁGINA
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const savedTheme = localStorage.getItem('theme');
+            const toggleButton = document.getElementById('theme-toggle');
+
+            if (savedTheme === 'dark') {
+                document.body.classList.add('dark-mode');
+                toggleButton.textContent = 'Cambiar a Modo Claro';
+            } else {
+                toggleButton.textContent = 'Cambiar a Modo Oscuro';
+            }
+        });
+    </script>
+</body>
+</html>

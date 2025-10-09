@@ -1,0 +1,248 @@
+/* =========================================
+   ESTILOS GENERALES
+   ========================================= */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0; 
+    padding: 0; 
+    background-color: #f4f4f4;
+    
+    /* === CAMBIOS CLAVE PARA FOOTER FIJO === */
+    display: flex;             /* Habilita Flexbox en el body */
+    flex-direction: column;    /* Apila los elementos verticalmente */
+    min-height: 100vh;         /* Asegura que el body use toda la altura del viewport */
+    /* ===================================== */
+}
+
+/* =========================================
+   HEADER (Banner Principal)
+   ========================================= */
+header {
+    /* Color de fondo solicitado: rgb(34, 172, 142) */
+    background-color: rgb(34, 172, 172); 
+    padding: 20px 0; 
+    text-align: center;
+    margin-bottom: 40px; 
+}
+
+header h1 {
+    color: white; /* Texto blanco en el banner */
+    margin: 0; 
+}
+
+/* Estilo general para el botón de cambio de tema */
+#theme-toggle {
+    background-color: white;
+    color: rgb(34, 172, 172);
+    border: 2px solid white;
+    padding: 8px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px; /* Espacio debajo del h1 */
+    font-weight: bold;
+    transition: all 0.3s; /* Transición suave */
+}
+
+#theme-toggle:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+/* =========================================
+   MAIN (Contenedor Flexbox de Proyectos)
+   ========================================= */
+main {
+    display: flex; 
+    flex-wrap: wrap; 
+    max-width: 1200px; 
+    margin: 0 auto; 
+    gap: 20px; 
+    padding: 0 20px; 
+}
+
+/* --- DIV 1: Texto (Columna Izquierda) --- */
+/* Primer hijo de <main> */
+main > .container:nth-child(1) { 
+    min-width: 300px; 
+    max-width: 500px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    order: 1; /* Asegura la posición a la izquierda */
+}
+
+/* --- right-column-group (Columna Derecha: Imagen + Menú) --- */
+/* Segundo hijo de <main> */
+.right-column-group {
+    width: 250px; /* Ancho fijo para la columna derecha */
+    display: flex;
+    flex-direction: column; /* Apila la imagen y el menú verticalmente */
+    gap: 20px;
+    order: 2; /* Asegura la posición a la derecha */
+}
+
+/* --- DIV 2: Contenedor de Imagen --- */
+.image-container {
+    flex: 0 0 auto; 
+}
+
+.image-container img {
+    width: 100%; 
+    height: auto;
+    display: block; 
+    border-radius: 12%;
+    border: 5px solid rgb(34, 172, 172);
+}
+
+/* --- DIV 3: Menú Desplegable (Debajo de la Imagen) --- */
+.menu-container {
+    background-color: #fff;
+    padding: 2px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Estructura del Dropdown */
+.dropdown {
+    position: relative; 
+    display: inline-block;
+    width: 100%;
+}
+
+.dropdown-button {
+    background-color: rgb(34, 172, 172);
+    color: white;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    width: 100%;
+    text-align: left;
+}
+
+/* El contenido del menú (la lista) */
+.dropdown-content {
+    display: none; /* CLAVE: Oculto por defecto, JS lo mostrará */
+    position: absolute; 
+    background-color: #f9f9f9;
+    min-width: 100%;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1; 
+    padding: 0;
+    margin-top: 5px; 
+    border-radius: 4px;
+    list-style: none;
+}
+
+/* CLAVE: Clase que JavaScript añade para mostrar el menú al hacer clic */
+.show {
+    display: block; 
+}
+
+/* Estilos de los enlaces desplegados */
+.dropdown-content li a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block; 
+}
+
+.dropdown-content li a:hover {
+    background-color: #ddd;
+    border-radius: 4px;
+}
+
+
+/* =========================================
+   FOOTER
+   ========================================= */
+#content-wrap {
+    flex-grow: 1; /* Permite que este contenedor CREZCA y use todo el espacio vertical disponible */
+}
+
+footer {
+    text-align: center;
+    padding: 10px 0;
+    border-top: 1px solid #ccc;
+    font-size: 0.9em;
+    color: #666;
+}
+
+/* =========================================
+   MEDIA QUERY (Diseño Responsivo)
+   ========================================= */
+@media (max-width: 768px) {
+    main {
+        flex-direction: column; /* Apila las columnas verticalmente */
+        align-items: center; 
+    }
+
+    /* Aplica ancho completo a todos los contenedores principales */
+    main > .container,
+    .right-column-group {
+        width: 100%; 
+        max-width: 500px; 
+        margin-bottom: 20px;
+        order: initial; /* Vuelve al orden original del HTML */
+    }
+}
+
+/* =========================================
+   ESTILOS DE MODO OSCURO (.dark-mode)
+   ========================================= */
+
+/* Estilos de la clase principal que se añade al <body> */
+body.dark-mode {
+    background-color: #121212; /* Fondo oscuro casi negro */
+    color: #f4f4f4; /* Texto claro */
+}
+
+/* Estilos del Header en modo oscuro */
+body.dark-mode header {
+    background-color: rgb(34, 172, 172); /* Un verde oscuro, manteniendo el tono original */
+}
+
+/* Estilos del botón de cambio de tema */
+body.dark-mode #theme-toggle {
+    background-color: #121212;
+    color: rgb(34, 172, 172);
+    border: 1px solid rgb(34, 172, 172);
+}
+
+/* Estilos de los contenedores blancos (texto, imagen, menú) en modo oscuro */
+body.dark-mode .container:nth-child(1),
+body.dark-mode .menu-container {
+    background-color: #1e1e1e; /* Color oscuro para los bloques de contenido */
+    box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1); /* Sombra clara */
+}
+
+/* Estilos del texto h2 dentro de los contenedores */
+body.dark-mode h2 {
+    color: #f4f4f4; 
+}
+
+/* Estilos de la imagen (mantener el borde original o cambiarlo ligeramente) */
+body.dark-mode .image-container img {
+    border-color: rgb(34, 172, 172); 
+}
+
+/* Estilos de los enlaces del menú desplegable */
+body.dark-mode .dropdown-content {
+    background-color: #2c2c2c;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.5);
+}
+
+body.dark-mode .dropdown-content li a {
+    color: #f4f4f4;
+}
+
+body.dark-mode .dropdown-content li a:hover {
+    background-color: #444; /* Hover oscuro */
+}
+
+/* Estilos del Footer */
+body.dark-mode footer {
+    border-top: 1px solid #333;
+    color: #999;
+}
