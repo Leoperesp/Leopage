@@ -56,7 +56,7 @@ main {
     max-width: 1200px; 
     margin: 0 auto; 
     gap: 20px; 
-    padding: 0;
+    padding: 0 20px;
     justify-content: center;
 }
 
@@ -182,11 +182,12 @@ footer {
     main > .container,
     .right-column-group {
         width: 100%; 
-        max-width: 500px; 
+        max-width: none; 
         margin-bottom: 20px;
         order: initial; /* Vuelve al orden original del HTML */
         margin-left: auto;
         margin-right: auto;
+        align-items: center;
     }
 }
 
