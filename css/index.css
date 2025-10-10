@@ -56,7 +56,8 @@ main {
     max-width: 1200px; 
     margin: 0 auto; 
     gap: 20px; 
-    padding: 0 20px; 
+    padding: 0;
+    justify-content: center;
 }
 
 /* --- DIV 1: Texto (Columna Izquierda) --- */
@@ -175,7 +176,6 @@ footer {
 @media (max-width: 768px) {
     main {
         flex-direction: column; /* Apila las columnas verticalmente */
-        align-items: center; 
     }
 
     /* Aplica ancho completo a todos los contenedores principales */
@@ -185,6 +185,8 @@ footer {
         max-width: 500px; 
         margin-bottom: 20px;
         order: initial; /* Vuelve al orden original del HTML */
+        margin-left: auto;
+        margin-right: auto;
     }
 }
 
