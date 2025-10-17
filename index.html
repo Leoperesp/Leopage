@@ -9,13 +9,15 @@
 <body>
     <div id="content-wrap">
         <header>
-            <h1>Hola! Soy Leonardo Perez.</h1>
-            <button id="theme-toggle" onclick="toggleTheme()">Cambiar a Modo Oscuro</button>
+            <h1>Hola! Soy Leonardo Perez. 
+                <button id="theme-toggle" onclick="toggleTheme()">⚫️</button>
+            </h1>
+            
         </header>
         <main>
             <div class="container"> 
                 <h2>Bienvenido a mi sitio web personal.</h2>
-                <p>Aquí encontrarás diferentes proyectos que he hecho en mi carreara de programador, así como otras habilidades que he adquirido en otros campos.</p>
+                <p>Aquí encontrarás diferentes proyectos que he hecho en mi carrera de programador, así como otras habilidades que he adquirido en otros campos.</p>
                 <p>Gracias por visitar mi sitio web!</p>
             </div>
             
@@ -75,10 +77,10 @@
             // 2. Guardar la preferencia del usuario en el almacenamiento local
             if (body.classList.contains('dark-mode')) {
                 localStorage.setItem('theme', 'dark');
-                toggleButton.textContent = 'Cambiar a Modo Claro';
+                toggleButton.textContent = '⚪️';
             } else {
                 localStorage.setItem('theme', 'light');
-                toggleButton.textContent = 'Cambiar a Modo Oscuro';
+                toggleButton.textContent = '⚫️';
             }
         }
 
@@ -89,9 +91,9 @@
 
             if (savedTheme === 'dark') {
                 document.body.classList.add('dark-mode');
-                toggleButton.textContent = 'Cambiar a Modo Claro';
+                toggleButton.textContent = '⚪️';
             } else {
-                toggleButton.textContent = 'Cambiar a Modo Oscuro';
+                toggleButton.textContent = '⚫️';
             }
         });
     </script>

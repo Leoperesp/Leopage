@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/index.css">
+    <title>Programación</title>
+</head>
+<body>
+    <div id="content-wrap">
+    <header>
+        <h1>Hola! Soy Leonardo Perez. 
+            <button id="theme-toggle" onclick="toggleTheme()">⚫️</button>
+        </h1>
+    </header>
+    <main>
+    </main>
+    </div>
+    <footer>
+        <p>&copy; 2025 diseñado por: Leonardo Perez.</p>
+    </footer>
+
+    <script>
+        function toggleDropdown() {
+            // Selecciona el elemento del menú desplegable por su ID
+            const menu = document.getElementById("menu-desplegable");
+            
+            // Alterna la clase 'show' para mostrar/ocultar el menú
+            menu.classList.toggle("show");
+        }
+
+        // Opcional: Cerrar el menú si el usuario hace clic fuera de él
+        window.onclick = function(event) {
+            if (!event.target.matches('.dropdown-button')) {
+                const dropdowns = document.getElementsByClassName("dropdown-content");
+                for (let i = 0; i < dropdowns.length; i++) {
+                    const openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                }
+            }
+        }
+
+                // FUNCIÓN PARA EL MODO OSCURO
+        function toggleTheme() {
+            const body = document.body;
+            const toggleButton = document.getElementById('theme-toggle');
+
+            // 1. Alternar la clase en el <body>
+            body.classList.toggle('dark-mode');
+
+            // 2. Guardar la preferencia del usuario en el almacenamiento local
+            if (body.classList.contains('dark-mode')) {
+                localStorage.setItem('theme', 'dark');
+                toggleButton.textContent = '⚪️';
+            } else {
+                localStorage.setItem('theme', 'light');
+                toggleButton.textContent = '⚫️';
+            }
+        }
+
+        // FUNCIÓN PARA APLICAR EL TEMA AL CARGAR LA PÁGINA
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const savedTheme = localStorage.getItem('theme');
+            const toggleButton = document.getElementById('theme-toggle');
+
+            if (savedTheme === 'dark') {
+                document.body.classList.add('dark-mode');
+                toggleButton.textContent = '⚪️';
+            } else {
+                toggleButton.textContent = '⚫️';
+            }
+        });
+    </script>
+</body>
+</html>

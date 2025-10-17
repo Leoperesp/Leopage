@@ -54,16 +54,12 @@ main {
     max-width: 1200px;
     margin: 0 auto;
     gap: 20px;
-    /* ✅ Añadido: Padding lateral para evitar que el contenido toque los bordes del viewport */
     padding: 0 20px;
     justify-content: center;
-
-    /* ✅ Ajuste para que 'main' no imponga su max-width global en móvil */
     width: 100%;
-    box-sizing: border-box; /* Buena práctica para padding */
+    box-sizing: border-box;
 }
 
-/* --- DIV 1: Texto (Columna Izquierda) --- */
 main > .container:nth-child(1) {
     min-width: 300px;
     max-width: 500px;
@@ -74,7 +70,6 @@ main > .container:nth-child(1) {
     order: 1;
 }
 
-/* --- right-column-group (Columna Derecha: Imagen + Menú) --- */
 .right-column-group {
     width: 250px;
     display: flex;
@@ -83,7 +78,6 @@ main > .container:nth-child(1) {
     order: 2;
 }
 
-/* --- DIV 2: Contenedor de Imagen --- */
 .image-container {
     flex: 0 0 auto;
 }
@@ -96,7 +90,6 @@ main > .container:nth-child(1) {
     border: 5px solid rgb(34, 172, 172);
 }
 
-/* --- DIV 3: Menú Desplegable (Debajo de la Imagen) --- */
 .menu-container {
     background-color: #fff;
     padding: 2px;
@@ -104,11 +97,10 @@ main > .container:nth-child(1) {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* Estructura del Dropdown */
 .dropdown {
     position: relative;
     display: inline-block;
-    width: 100%; /* Asegura que tome el ancho del contenedor padre */
+    width: 100%;
 }
 
 .dropdown-button {
@@ -123,7 +115,6 @@ main > .container:nth-child(1) {
     text-align: left;
 }
 
-/* El contenido del menú (la lista) */
 .dropdown-content {
     display: none;
     position: absolute;
@@ -141,7 +132,6 @@ main > .container:nth-child(1) {
     display: block;
 }
 
-/* Estilos de los enlaces desplegados */
 .dropdown-content li a {
     color: black;
     padding: 12px 16px;
@@ -174,40 +164,26 @@ footer {
    ========================================= */
 @media (max-width: 300px) {
     main {
-        flex-direction: column; /* Apila las columnas verticalmente */
-
-        /* ✅ CLAVE: Aplica tu solución de ancho máximo (300px) y centrado al 'main' */
+        flex-direction: column; 
         max-width: none;
         margin-left: auto;
         margin-right: auto;
-        padding: 0; /* Ya no necesita padding, el max-width lo limita */
+        padding: 0; 
     }
 
-    /* Limpieza: Aplica ancho completo a todos los contenedores hijos */
     main > .container:nth-child(1),
     .right-column-group {
         width: 100%;
-        /* ❌ Se elimina código redundante: max-width y margins automáticos de los hijos */
         margin-bottom: 20px;
         order: initial;
+        align-items: center;
+        padding: 15px;
+        min-width: unset; 
     }
 
-    /* ✅ Asegura que la columna derecha use 100% y que su contenido se centre */
-    .right-column-group {
-        width: 100%; /* Sobrescribe el width: 250px; */
-        align-items: center; /* Centra la imagen y el menú */
-    }
-
-    /* ✅ Ajuste para que la imagen y el menú usen todo el ancho disponible */
     .image-container,
     .menu-container {
         width: 100%;
-    }
-
-    /* ✅ Reajuste del padding del contenedor de texto, ahora que 'main' no tiene padding */
-    main > .container:nth-child(1) {
-        padding: 15px; /* Ligeramente más pequeño para no saturar 300px */
-        min-width: unset; /* Ya no es necesario con el max-width del main */
     }
 }
 
