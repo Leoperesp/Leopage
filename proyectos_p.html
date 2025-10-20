@@ -3,75 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/pro_p.css">
+    <link rel="script" href="js/pro_p.js">
     <title>Programación</title>
 </head>
 <body>
     <div id="content-wrap">
     <header>
-        <h1>Hola! Soy Leonardo Perez. 
+        <h1>Proyectos de Programación. 
             <button id="theme-toggle" onclick="toggleTheme()">⚫️</button>
         </h1>
     </header>
     <main>
+        <div class="faq-container">
+            <div class="pro_container">
+                <button class="proyect-btn" data-question="q1">BlackJack</button>
+                <button class="proyect-btn" data-question="q2">To-do List</button>
+                <button class="proyect-btn" data-question="q3">Cyberstore</button>
+            </div>
+            <div class="answer" data-answer="q1">
+                <h2>BlackJack</h2>
+                <p>Se trata de un juego de cartas comocido como BlackJack, el cual consiste en sumar un valor total de 21 con dos cartas o más sin pasar dicho número.</p>
+                <p>El proyecto fue realizado con HTML, CSS y JavaScript en un entorno virtual desarrollado en FLASK.</p>
+                <p>El código fuente se encuentra disponible en mi repositorio de GitHub: <a href="https://github.com/Leoperesp/BlackJack" target="_blank">BlackJack GitHub</a></p> 
+                <a href="img/blackjack/black1.png" target="_blank">
+                    <img src="img/blackjack/black1.png" alt="BlackJack Game Screenshot" style="max-width:45%; height:auto;">
+                </a>
+                <a href="img/blackjack/black2.png" target="_blank">
+                    <img src="img/blackjack/black2.png" alt="BlackJack Game Screenshot" style="max-width:45%; height:auto;">
+                </a>                
+                <a href="img/blackjack/black3.png" target="_blank">
+                    <img src="img/blackjack/black3.png" alt="BlackJack Game Screenshot" style="max-width:45%; height:auto;">
+                </a>                
+                <a href="img/blackjack/black4.png" target="_blank">
+                    <img src="img/blackjack/black4.png" alt="BlackJack Game Screenshot" style="max-width:45%; height:auto;">
+                </a>
+            </div>
+
+            <div class="answer" data-answer="q2">
+                <h2>¿Cuáles son los métodos de pago disponibles?</h2>
+                <p>Aceptamos tarjetas de crédito, débito, PayPal y transferencias bancarias. Puedes seleccionar tu método de pago preferido durante el proceso de compra.</p>
+            </div>
+            <div class="answer" data-answer="q3">
+                <h2>¿Cómo puedo rastrear mi pedido?</h2>
+                <p>Una vez que tu pedido haya sido enviado, recibirás un correo electrónico con un número de seguimiento y un enlace para rastrear tu paquete en tiempo real.</p>  
+            </div>
+
+        </div>
     </main>
     </div>
     <footer>
         <p>&copy; 2025 diseñado por: Leonardo Perez.</p>
     </footer>
 
-    <script>
-        function toggleDropdown() {
-            // Selecciona el elemento del menú desplegable por su ID
-            const menu = document.getElementById("menu-desplegable");
-            
-            // Alterna la clase 'show' para mostrar/ocultar el menú
-            menu.classList.toggle("show");
-        }
-
-        // Opcional: Cerrar el menú si el usuario hace clic fuera de él
-        window.onclick = function(event) {
-            if (!event.target.matches('.dropdown-button')) {
-                const dropdowns = document.getElementsByClassName("dropdown-content");
-                for (let i = 0; i < dropdowns.length; i++) {
-                    const openDropdown = dropdowns[i];
-                    if (openDropdown.classList.contains('show')) {
-                        openDropdown.classList.remove('show');
-                    }
-                }
-            }
-        }
-
-                // FUNCIÓN PARA EL MODO OSCURO
-        function toggleTheme() {
-            const body = document.body;
-            const toggleButton = document.getElementById('theme-toggle');
-
-            // 1. Alternar la clase en el <body>
-            body.classList.toggle('dark-mode');
-
-            // 2. Guardar la preferencia del usuario en el almacenamiento local
-            if (body.classList.contains('dark-mode')) {
-                localStorage.setItem('theme', 'dark');
-                toggleButton.textContent = '⚪️';
-            } else {
-                localStorage.setItem('theme', 'light');
-                toggleButton.textContent = '⚫️';
-            }
-        }
-
-        // FUNCIÓN PARA APLICAR EL TEMA AL CARGAR LA PÁGINA
-        document.addEventListener('DOMContentLoaded', (event) => {
-            const savedTheme = localStorage.getItem('theme');
-            const toggleButton = document.getElementById('theme-toggle');
-
-            if (savedTheme === 'dark') {
-                document.body.classList.add('dark-mode');
-                toggleButton.textContent = '⚪️';
-            } else {
-                toggleButton.textContent = '⚫️';
-            }
-        });
-    </script>
+    <script src="js/projects.js"></script>
 </body>
 </html>
