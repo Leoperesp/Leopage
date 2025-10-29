@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/pro_p.css">
-    <link rel="script" href="js/pro_p.js">
+    <script src="js/projects.js" defer></script>
     <title>Programación</title>
 </head>
 <body>
@@ -26,18 +26,20 @@
                 <p>Se trata de un juego de cartas comocido como BlackJack, el cual consiste en sumar un valor total de 21 con dos cartas o más sin pasar dicho número.</p>
                 <p>El proyecto fue realizado con HTML, CSS y JavaScript en un entorno virtual desarrollado en FLASK.</p>
                 <p>El código fuente se encuentra disponible en mi repositorio de GitHub: <a href="https://github.com/Leoperesp/BlackJack" target="_blank">BlackJack GitHub</a></p> 
-                <a href="img/blackjack/black1.png" target="_blank">
-                    <img src="img/blackjack/black1.png" alt="BlackJack Game Screenshot" style="max-width:45%; height:auto;">
-                </a>
-                <a href="img/blackjack/black2.png" target="_blank">
-                    <img src="img/blackjack/black2.png" alt="BlackJack Game Screenshot" style="max-width:45%; height:auto;">
-                </a>                
-                <a href="img/blackjack/black3.png" target="_blank">
-                    <img src="img/blackjack/black3.png" alt="BlackJack Game Screenshot" style="max-width:45%; height:auto;">
-                </a>                
-                <a href="img/blackjack/black4.png" target="_blank">
-                    <img src="img/blackjack/black4.png" alt="BlackJack Game Screenshot" style="max-width:45%; height:auto;">
-                </a>
+                <div class="image-gallery">
+                    <a href="javascript:void(0)" onclick="openModal('img/blackjack/black1.png')">
+                        <img src="img/blackjack/black1.png" alt="BlackJack Game Screenshot">
+                    </a>
+                    <a href="javascript:void(0)" onclick="openModal('img/blackjack/black2.png')">
+                        <img src="img/blackjack/black2.png" alt="BlackJack Game Screenshot">
+                    </a>
+                    <a href="javascript:void(0)" onclick="openModal('img/blackjack/black3.png')">
+                        <img src="img/blackjack/black3.png" alt="BlackJack Game Screenshot">
+                    </a>
+                    <a href="javascript:void(0)" onclick="openModal('img/blackjack/black4.png')">
+                        <img src="img/blackjack/black4.png" alt="BlackJack Game Screenshot">
+                    </a>
+                </div>
             </div>
 
             <div class="answer" data-answer="q2">
@@ -45,22 +47,54 @@
                 <p>Éste es un proyecto que enlista tareas por hacer y las guarda en una base de datos relacionada al usuario. Cuenta con un login y un registro para la administración de las tareas.</p>
                 <p>El proyecto fue realizado con HTML, CSS y Python en un entorno virtual desarrollado en Django.</p>
                 <p>El código fuente se encuentra disponible en mi repositorio de GitHub: <a href="https://github.com/Leoperesp/Todoproject" target="_blank">To-Do GitHub</a></p>
-                <a href="img/ToDo/todo1.png" target="_blank">
-                    <img src="img/ToDo/todo1.png" alt="To-Do Screenshot" style="max-width:45%; height:auto;">
-                </a>
-                <a href="img/ToDo/todo2.png" target="_blank">
-                    <img src="img/ToDo/todo2.png" alt="To-Do Screenshot" style="max-width:45%; height:auto;">
-                </a>                
-                <a href="img/ToDo/todo4.png" target="_blank">
-                    <img src="img/ToDo/todo4.png" alt="To-Do Screenshot" style="max-width:45%; height:auto;">
-                </a>
-                <a href="img/ToDo/todo5.png" target="_blank">
-                    <img src="img/ToDo/todo5.png" alt="To-Do Screenshot" style="max-width:45%; height:auto;">
-                </a>
+                <div class="image-gallery">
+                    <a href="javascript:void(0)" onclick="openModal('img/ToDo/todo1.png')">
+                        <img src="img/ToDo/todo1.png" alt="To-Do Screenshot">
+                    </a>
+                    <a href="javascript:void(0)" onclick="openModal('img/ToDo/todo2.png')">
+                        <img src="img/ToDo/todo2.png" alt="To-Do Screenshot">
+                    </a>
+                    <a href="javascript:void(0)" onclick="openModal('img/ToDo/todo4.png')">
+                        <img src="img/ToDo/todo4.png" alt="To-Do Screenshot">
+                    </a>
+                    <a href="javascript:void(0)" onclick="openModal('img/ToDo/todo5.png')">
+                        <img src="img/ToDo/todo5.png" alt="To-Do Screenshot">
+                    </a>
+                </div>
             </div>
             <div class="answer" data-answer="q3">
-                <h2>¿Cómo puedo rastrear mi pedido?</h2>
-                <p>Una vez que tu pedido haya sido enviado, recibirás un correo electrónico con un número de seguimiento y un enlace para rastrear tu paquete en tiempo real.</p>  
+                <h2>Cyberstore</h2>
+                <p>Este es un proyecto de una tienda virtual llamada Cyberstore, la cual contiene varios módulos para la gestion de productos, gestion de usuarios, panel administrador,
+                    carrito de compras productos en descuento y pasarela de pagos.
+                </p>
+                <p>El proyecto fue realizado con HTML, CSS y JavaScript en un entorno virtual desarrollado en FLASK.</p>
+                <p>El código fuente se encuentra disponible en mi repositorio de GitHub: <a href="https://github.com/Leoperesp/Cyberstore" target="_blank">Cyberstore GitHub</a></p>
+                <div class="image-gallery">
+                    <a href="javascript:void(0)" onclick="openModal('img/cyberstore/cyber1.png')">
+                        <img src="img/cyberstore/cyber1.png" alt="Cyberstore Screenshot">
+                    </a>
+                    <a href="javascript:void(0)" onclick="openModal('img/cyberstore/cyber2.png')">
+                        <img src="img/cyberstore/cyber2.png" alt="Cyberstore Screenshot">
+                    </a>
+                    <a href="javascript:void(0)" onclick="openModal('img/cyberstore/cyber3.png')">
+                        <img src="img/cyberstore/cyber3.png" alt="Cyberstore Screenshot">
+                    </a>
+                    <a href="javascript:void(0)" onclick="openModal('img/cyberstore/cyber4.png')">
+                        <img src="img/cyberstore/cyber4.png" alt="Cyberstore Screenshot">
+                    </a>
+                    <a href="javascript:void(0)" onclick="openModal('img/cyberstore/cyber5.png')">
+                        <img src="img/cyberstore/cyber5.png" alt="Cyberstore Screenshot">
+                    </a>
+                    <a href="javascript:void(0)" onclick="openModal('img/cyberstore/cyber6.png')">
+                        <img src="img/cyberstore/cyber6.png" alt="Cyberstore Screenshot">
+                    </a>
+                    <a href="javascript:void(0)" onclick="openModal('img/cyberstore/cyber7.png')">
+                        <img src="img/cyberstore/cyber7.png" alt="Cyberstore Screenshot">
+                    </a>
+                    <a href="javascript:void(0)" onclick="openModal('img/cyberstore/cyber8.png')">
+                        <img src="img/cyberstore/cyber8.png" alt="Cyberstore Screenshot">
+                    </a>
+                </div>
             </div>
 
         </div>
@@ -70,6 +104,13 @@
         <p>&copy; 2025 diseñado por: Leonardo Perez.</p>
     </footer>
 
+    <!-- Modal para mostrar imágenes -->
+    <div class="modal" id="imageModal">
+        <button class="modal-close" onclick="closeModal()">&times;</button>
+        <div class="modal-content">
+            <img id="modalImage" src="" alt="Imagen ampliada">
+        </div>
+    </div>
     <script src="js/projects.js"></script>
 </body>
 </html>

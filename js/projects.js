@@ -79,3 +79,35 @@ document.addEventListener('DOMContentLoaded', (event) => {
         toggleButton.textContent = '⚫️';
     }
 });
+
+// Funciones para el modal de imágenes
+function openModal(imageSrc) {
+    const modal = document.getElementById('imageModal');
+    const modalImg = document.getElementById('modalImage');
+    modalImg.src = imageSrc;
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+    const modal = document.getElementById('imageModal');
+    modal.classList.remove('active');
+    document.body.style.overflow = 'auto';
+}
+
+// Event listeners para el modal
+document.addEventListener('DOMContentLoaded', () => {
+    // Cerrar modal al hacer clic fuera de la imagen
+    document.getElementById('imageModal').addEventListener('click', function(e) {
+        if (e.target === this) {
+            closeModal();
+        }
+    });
+
+    // Cerrar modal con la tecla ESC
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && document.getElementById('imageModal').classList.contains('active')) {
+            closeModal();
+        }
+    });
+});
