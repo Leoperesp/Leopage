@@ -82,11 +82,38 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
 // Funciones para el modal de imágenes
 function openModal(imageSrc) {
+    // Compatibilidad con llamada antigua: openModal(imageSrc)
+    // Buscamos la imagen dentro de la galería para determinar índice y galería
     const modal = document.getElementById('imageModal');
     const modalImg = document.getElementById('modalImage');
     modalImg.src = imageSrc;
     modal.classList.add('active');
     document.body.style.overflow = 'hidden';
+
+    // Intentar establecer la galería activa y el índice actual
+    try {
+        // Todas las miniaturas de la página
+        const thumbs = Array.from(document.querySelectorAll('.image-gallery img'));
+        const currentIndex = thumbs.findIndex(img => img.src.endsWith(imageSrc) || img.getAttribute('src') === imageSrc || img.src === (new URL(imageSrc, location.href)).href);
+        if (currentIndex !== -1) {
+            // Determinar la galería (nodo padre .image-gallery)
+            const currentThumb = thumbs[currentIndex];
+            const gallery = currentThumb.closest('.image-gallery');
+            // Construir lista de src dentro de esa galería
+            window.__activeGallery = Array.from(gallery.querySelectorAll('img')).map(i => i.getAttribute('src'));
+            window.__activeIndex = Array.from(gallery.querySelectorAll('img')).indexOf(currentThumb);
+        } else {
+            // Si no se encuentra, reiniciar
+            window.__activeGallery = [imageSrc];
+            window.__activeIndex = 0;
+        }
+    } catch (err) {
+        window.__activeGallery = [imageSrc];
+        window.__activeIndex = 0;
+    }
+
+    // Actualizar contador
+    updateModalCounter();
 }
 
 function closeModal() {
@@ -106,8 +133,48 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Cerrar modal con la tecla ESC
     document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && document.getElementById('imageModal').classList.contains('active')) {
+        const modalActive = document.getElementById('imageModal').classList.contains('active');
+        if (!modalActive) return;
+
+        if (e.key === 'Escape') {
             closeModal();
+        } else if (e.key === 'ArrowRight') {
+            nextImage();
+        } else if (e.key === 'ArrowLeft') {
+            prevImage();
         }
     });
+    
+    // Botones del modal
+    const nextBtn = document.getElementById('modalNextBtn');
+    const prevBtn = document.getElementById('modalPrevBtn');
+    const closeBtn = document.getElementById('modalCloseBtn');
+    if (nextBtn) nextBtn.addEventListener('click', nextImage);
+    if (prevBtn) prevBtn.addEventListener('click', prevImage);
+    if (closeBtn) closeBtn.addEventListener('click', closeModal);
 });
+
+// Funciones para navegar imágenes dentro de la galería activa
+function nextImage() {
+    const modalImg = document.getElementById('modalImage');
+    if (!window.__activeGallery || window.__activeGallery.length === 0) return;
+    window.__activeIndex = (window.__activeIndex + 1) % window.__activeGallery.length;
+    modalImg.src = window.__activeGallery[window.__activeIndex];
+    updateModalCounter();
+}
+
+function prevImage() {
+    const modalImg = document.getElementById('modalImage');
+    if (!window.__activeGallery || window.__activeGallery.length === 0) return;
+    window.__activeIndex = (window.__activeIndex - 1 + window.__activeGallery.length) % window.__activeGallery.length;
+    modalImg.src = window.__activeGallery[window.__activeIndex];
+    updateModalCounter();
+}
+
+function updateModalCounter() {
+    const counter = document.getElementById('modalCounter');
+    if (!counter) return;
+    const total = window.__activeGallery ? window.__activeGallery.length : 0;
+    const current = (typeof window.__activeIndex === 'number') ? window.__activeIndex + 1 : 0;
+    counter.textContent = `${current} / ${total}`;
+}

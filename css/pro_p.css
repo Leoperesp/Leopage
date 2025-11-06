@@ -160,37 +160,52 @@ footer {
     padding: 10px;
 }
 
-/* =========================================
-   MEDIA QUERY (Diseño Responsivo)
-   ========================================= */
-@media (max-width: 300px) {
-    main {
-        flex-direction: column; 
-        max-width: none;
-        margin-left: auto;
-        margin-right: auto;
-        padding: 0; 
-    }
-
-    main > .container:nth-child(1),
-    .right-column-group {
-        width: 100%;
-        margin-bottom: 20px;
-        order: initial;
-        align-items: center;
-        padding: 15px;
-        min-width: unset; 
-    }
-
-    .image-container,
-    .menu-container {
-        width: 100%;
-    }
+/* Botones de navegación en el modal */
+.modal-prev,
+.modal-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+    background: rgba(0,0,0,0.4);
+    border: none;
+    font-size: 36px;
+    width: 48px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: background 0.15s ease;
 }
 
-/* =========================================
-   ESTILOS DE MODO OSCURO (.dark-mode)
-   ========================================= */
+.modal-prev:hover,
+.modal-next:hover {
+    background: rgba(255,255,255,0.08);
+}
+
+.modal-prev { left: 16px; }
+.modal-next { right: 16px; }
+
+/* Contador dentro del modal */
+.modal-counter {
+    position: absolute;
+    bottom: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0,0,0,0.45);
+    color: #fff;
+    padding: 6px 10px;
+    border-radius: 14px;
+    font-size: 14px;
+    z-index: 1010;
+}
+
+/* * =========================================
+ * ESTILOS DE MODO OSCURO (.dark-mode) - MOVIDOS AL FINAL
+ * ========================================= 
+ */
 body.dark-mode {
     background-color: #121212;
     color: #f4f4f4;
@@ -220,4 +235,97 @@ body.dark-mode h2 {
 body.dark-mode footer {
     border-top: 1px solid #333;
     color: #999;
+}
+
+
+/* * =========================================
+ * MEDIA QUERY CONSOLIDADO (max-width: 768px)
+ * Se incluye la lógica para 768px, 480px y 300px en cascada.
+ * ========================================= 
+ */
+@media (max-width: 768px) {
+    /* * Estilos para Tablet y Móvil (hasta 768px)
+     */
+    .faq-container {
+        flex-direction: column;
+        align-items: stretch;
+        height: auto; /* permitir que el contenido crezca verticalmente */
+        padding: 20px;
+        gap: 16px;
+    }
+
+    .pro_container,
+    .answer {
+        width: 100%;
+        max-width: none;
+        margin: 0 0 12px 0;
+        margin-left: 0;
+        box-sizing: border-box;
+    }
+
+    .pro_container {
+        order: 1;
+    }
+
+    .answer {
+        order: 2;
+    }
+
+    /* Hacer los botones de proyecto de ancho completo en móvil */
+    .proyect-btn {
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        text-align: center;
+    }
+
+    /* Ajustes de la galería para que las miniaturas sean más pequeñas */
+    .image-gallery a {
+        width: 140px;
+        height: 100px;
+    }
+
+    /* * Sobrescribir estilos del Modal para pantallas pequeñas (hasta 480px)
+     */
+    @media (max-width: 480px) {
+        .modal-prev, .modal-next {
+            font-size: 28px;
+            width: 40px;
+            height: 56px;
+        }
+        .modal-close { top: 8px; right: 8px; font-size: 28px; }
+
+        .modal-counter {
+            font-size: 13px;
+            padding: 5px 8px;
+            bottom: 12px;
+        }
+    }
+
+    /* * Sobrescribir estilos para dispositivos muy pequeños (hasta 300px)
+     */
+    @media (max-width: 300px) {
+        main {
+            flex-direction: column; 
+            max-width: none;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 0; 
+        }
+
+        main > .container:nth-child(1),
+        .right-column-group {
+            width: 100%;
+            margin-bottom: 20px;
+            order: initial;
+            align-items: center;
+            padding: 15px;
+            min-width: unset; 
+        }
+
+        .image-container,
+        .menu-container {
+            width: 100%;
+        }
+    }
 }

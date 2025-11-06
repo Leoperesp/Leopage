@@ -20,6 +20,7 @@
                 <button class="proyect-btn" data-question="q1">BlackJack</button>
                 <button class="proyect-btn" data-question="q2">To-do List</button>
                 <button class="proyect-btn" data-question="q3">Cyberstore</button>
+                <button class="proyect-btn" onclick="window.location.href='index.html'">Regresar</button>
             </div>
             <div class="answer" data-answer="q1">
                 <h2>BlackJack</h2>
@@ -106,11 +107,13 @@
 
     <!-- Modal para mostrar imágenes -->
     <div class="modal" id="imageModal">
-        <button class="modal-close" onclick="closeModal()">&times;</button>
+        <button class="modal-close" id="modalCloseBtn" aria-label="Cerrar imagen">&times;</button>
+        <button class="modal-prev" id="modalPrevBtn" aria-label="Imagen anterior">&#10094;</button>
+        <button class="modal-next" id="modalNextBtn" aria-label="Siguiente imagen">&#10095;</button>
         <div class="modal-content">
             <img id="modalImage" src="" alt="Imagen ampliada">
+            <div class="modal-counter" id="modalCounter" aria-live="polite">0 / 0</div>
         </div>
     </div>
-    <script src="js/projects.js"></script>
 </body>
 </html>
