@@ -1,51 +1,4 @@
 /* =========================================
-   ESTILOS GENERALES
-   ========================================= */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
-
-    /* === CAMBIOS CLAVE PARA FOOTER FIJO === */
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    /* ===================================== */
-}
-
-/* =========================================
-   HEADER (Banner Principal)
-   ========================================= */
-header {
-    background-color: rgb(34, 172, 172);
-    padding: 20px 0;
-    text-align: center;
-    margin-bottom: 40px;
-}
-
-header h1 {
-    color: white;
-    margin: 0;
-}
-
-#theme-toggle {
-    background-color: white;
-    color: rgb(34, 172, 172);
-    border: 2px solid white;
-    padding: 8px 15px;
-    cursor: pointer;
-    border-radius: 5px;
-    margin-top: 10px;
-    font-weight: bold;
-    transition: all 0.3s;
-}
-
-#theme-toggle:hover {
-    background-color: rgba(255, 255, 255, 0.8);
-}
-
-/* =========================================
    MAIN (Contenedor Flexbox de Proyectos)
    ========================================= */
 main {
@@ -145,21 +98,6 @@ main > .container:nth-child(1) {
 }
 
 /* =========================================
-   FOOTER
-   ========================================= */
-#content-wrap {
-    flex-grow: 1;
-}
-
-footer {
-    text-align: center;
-    padding: 10px 0;
-    border-top: 1px solid #ccc;
-    font-size: 0.9em;
-    color: #666;
-}
-
-/* =========================================
    MEDIA QUERY (Diseño Responsivo)
    ========================================= */
 @media (max-width: 300px) {
@@ -187,52 +125,4 @@ footer {
     }
 }
 
-/* =========================================
-   ESTILOS DE MODO OSCURO (.dark-mode)
-   ========================================= */
-body.dark-mode {
-    background-color: #121212;
-    color: #f4f4f4;
-}
-
-body.dark-mode header {
-    background-color: rgb(34, 172, 172);
-}
-
-body.dark-mode #theme-toggle {
-    background-color: #121212;
-    color: rgb(34, 172, 172);
-    border: 1px solid rgb(34, 172, 172);
-}
-
-body.dark-mode .container:nth-child(1),
-body.dark-mode .menu-container {
-    background-color: #1e1e1e;
-    box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1);
-}
-
-body.dark-mode h2 {
-    color: #f4f4f4;
-}
-
-body.dark-mode .image-container img {
-    border-color: rgb(34, 172, 172);
-}
-
-body.dark-mode .dropdown-content {
-    background-color: #2c2c2c;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.5);
-}
-
-body.dark-mode .dropdown-content li a {
-    color: #f4f4f4;
-}
-
-body.dark-mode .dropdown-content li a:hover {
-    background-color: #444;
-}
-
-body.dark-mode footer {
-    border-top: 1px solid #333;
-    color: #999;
-}
+/* dark-mode styles moved to css/theme.css */

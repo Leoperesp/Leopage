@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Selecciona todos los botones de pregunta y las respuestas
-    const questionButtons = document.querySelectorAll('.proyect-btn');
+    // Selecciona todos los botones de pregunta (solo los que tienen data-question) y las respuestas
+    const questionButtons = document.querySelectorAll('.proyect-btn[data-question]');
     const answerContainers = document.querySelectorAll('.answer');
 
     // Oculta todas las respuestas al cargar la página

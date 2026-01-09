@@ -1,0 +1,110 @@
+/* Page relies on global body styles from css/theme.css; page-specific resets kept minimal */
+
+/* Estilos para el contenedor de información de contacto */
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Estilo para cada fila de información */
+.info-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    padding: 12px 0;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.info-row:last-of-type {
+    border-bottom: none;
+}
+
+/* Estilo para los iconos */
+.info-row .icon {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #666;
+}
+
+/* Contenedor de texto */
+.info-row > div:last-child {
+    flex: 1;
+}
+
+/* Estilos para las etiquetas */
+.label {
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 4px;
+    font-size: 14px;
+}
+
+/* Estilos para el texto mutado (más claro) */
+.muted {
+    color: #666;
+    font-size: 14px;
+}
+
+.muted a {
+    color: #0066cc;
+    text-decoration: none;
+}
+
+.muted a:hover {
+    text-decoration: underline;
+}
+
+/* Nota adicional */
+.note {
+    margin-top: 10px;
+    color: #555;
+    font-size: 13px;
+    font-style: italic;
+}
+
+/* Estilos para redes sociales */
+.socials {
+    display: flex;
+    gap: 15px;
+    margin-top: 12px;
+    flex-wrap: wrap;
+}
+
+.socials a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: #e8e8e8;
+    color: #333;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.socials a:hover {
+    background-color: #0066cc;
+    color: white;
+}
+
+.container-btn  button{
+  display: inline-block;
+  background: rgb(34, 172, 172);
+  text-decoration: none;
+  color: var(--text-dark);
+  border: none;
+  font-size: medium;
+  padding: 10px 15px;
+  border-radius: 5px;
+  transition: color 0.3s ease;
+  margin-top: 8px;
+}
+
+.container-btn:hover {
+  background: var(--primary-color);
+  color: white;
+  border-radius: 5px;
+}
