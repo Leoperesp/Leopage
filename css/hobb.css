@@ -31,6 +31,13 @@ ul{ margin:.25rem 0 0 1.25rem; color:var(--muted); }
 .meta{ font-size:.9rem; color:var(--muted); margin-top:.5rem; }
 
 
+/* Estilos para la barra de progreso del estudio de idiomas */
+.study-progress{ background:var(--muted); border-radius:6px; height:14px; margin-top:.5rem; overflow:hidden; }
+.study-progress .progress{ background:var(--primary-color); height:100%; color:white; font-size:.8rem; text-align:center; line-height:14px; border-radius:6px 0 0 6px; }
+
+/* Icono de bandera */
+.flag{ width:22px; height:auto; display:inline-block; vertical-align:middle; margin-left:6px; }
+
 /* media queries and responsive rules follow */
 @media (max-width: 768px) {
     /* * Estilos para Tablet y Móvil (hasta 768px) */
